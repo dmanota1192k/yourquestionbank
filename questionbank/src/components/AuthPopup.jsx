@@ -216,7 +216,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity"
+      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity overflow-y-auto"
       onClick={handleOutsideClick}
       role="dialog"
       aria-modal="true"
@@ -224,25 +224,25 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
     >
       <div 
         ref={modalRef}
-        className="bg-white rounded-lg shadow-xl w-full max-w-md relative animate-fadeIn overflow-hidden"
+        className="bg-white rounded-lg shadow-xl w-full max-w-md relative animate-fadeIn my-4 max-h-screen overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
+        {/* Close button - moved outside of scrollable content to always be visible */}
         <button 
           onClick={onClose}
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-full p-1"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-full p-1 z-10 bg-white bg-opacity-75"
           aria-label="Close"
         >
-          <X className="h-5 w-5 sm:h-6 sm:w-6" />
+          <X className="h-5 w-5" />
         </button>
 
-        <div className="p-4 sm:p-8">
-          {/* Header */}
-          <div className="text-center mb-4 sm:mb-6">
-            <h2 id="auth-modal-title" className="text-xl sm:text-2xl font-bold text-gray-800">
+        <div className="p-4 pt-8">
+          {/* Header - made more compact */}
+          <div className="text-center mb-3">
+            <h2 id="auth-modal-title" className="text-xl font-bold text-gray-800">
               {mode === 'login' ? 'Welcome Back!' : 'Create an Account'}
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 mt-1">
+            <p className="text-sm text-gray-600">
               {mode === 'login' 
                 ? 'Sign in to access your account' 
                 : 'Join thousands of students preparing for exams'}
@@ -251,28 +251,28 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
 
           {/* Success Message */}
           {submitSuccess && (
-            <div className="mb-4 sm:mb-6 py-2 px-4 bg-green-100 text-green-800 rounded-lg flex items-center">
-              <svg className="w-5 h-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <div className="mb-3 py-2 px-3 bg-green-100 text-green-800 rounded-lg flex items-center">
+              <svg className="w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm sm:text-base">
+              <span className="text-sm">
                 {mode === 'login' ? 'Successfully signed in!' : 'Account created successfully!'}
               </span>
             </div>
           )}
 
-          {/* Form */}
+          {/* Form - with reduced spacing */}
           <form onSubmit={handleSubmit} noValidate>
             {/* Name fields - only for signup */}
             {mode === 'signup' && (
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm sm:text-base font-medium mb-2">Full Name</label>
-                <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+              <div className="mb-3">
+                <label className="block text-gray-700 text-sm font-medium mb-1">Full Name</label>
+                <div className="flex space-x-2">
                   {/* First Name */}
                   <div className="flex-1">
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <User className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                        <User className="h-4 w-4 text-gray-400" />
                       </div>
                       <input
                         type="text"
@@ -280,7 +280,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full pl-10 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="First name"
                         required
                         ref={firstInputRef}
@@ -298,7 +298,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Last name"
                         required
                         aria-required="true"
@@ -310,11 +310,11 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
             )}
 
             {/* Email field */}
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 text-sm sm:text-base font-medium mb-2">Email Address</label>
+            <div className="mb-3">
+              <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-1">Email Address</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                  <Mail className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   type="email"
@@ -322,7 +322,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-3 py-2 text-sm sm:text-base border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.email ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
+                  className={`w-full pl-10 pr-3 py-2 text-sm border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.email ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
                   placeholder="Enter your email"
                   required
                   ref={mode === 'login' ? firstInputRef : null}
@@ -331,21 +331,21 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                 />
                 {errors.email && (
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <AlertCircle className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
+                    <AlertCircle className="h-4 w-4 text-red-500" />
                   </div>
                 )}
               </div>
               {errors.email && (
-                <p id="email-error" className="mt-1 text-xs sm:text-sm text-red-600">{errors.email}</p>
+                <p id="email-error" className="mt-1 text-xs text-red-600">{errors.email}</p>
               )}
             </div>
 
             {/* Password field */}
-            <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700 text-sm sm:text-base font-medium mb-2">Password</label>
+            <div className="mb-3">
+              <label htmlFor="password" className="block text-gray-700 text-sm font-medium mb-1">Password</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                  <Lock className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -353,7 +353,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full pl-10 pr-10 py-2 text-sm sm:text-base border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.password ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
+                  className={`w-full pl-10 pr-10 py-2 text-sm border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.password ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
                   placeholder={mode === 'login' ? "Enter your password" : "Create a password"}
                   required
                   aria-invalid={errors.password ? "true" : "false"}
@@ -366,26 +366,26 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                     className="text-gray-400 hover:text-gray-600 focus:outline-none focus:text-blue-500"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                   >
-                    {showPassword ? <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Eye className="h-4 w-4 sm:h-5 sm:w-5" />}
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
                 </div>
               </div>
               {errors.password ? (
-                <p id="password-error" className="mt-1 text-xs sm:text-sm text-red-600">{errors.password}</p>
+                <p id="password-error" className="mt-1 text-xs text-red-600">{errors.password}</p>
               ) : mode === 'signup' && (
-                <p id="password-hint" className="mt-1 text-xs sm:text-sm text-gray-500">
-                  Password must have at least 8 characters and include uppercase, lowercase, number, and special character
+                <p id="password-hint" className="mt-1 text-xs text-gray-500">
+                  Must have 8+ chars with uppercase, lowercase, number, and special char
                 </p>
               )}
             </div>
 
             {/* Confirm Password field - only for signup */}
             {mode === 'signup' && (
-              <div className="mb-4 sm:mb-6">
-                <label htmlFor="confirmPassword" className="block text-gray-700 text-sm sm:text-base font-medium mb-2">Confirm Password</label>
+              <div className="mb-3">
+                <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-medium mb-1">Confirm Password</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                    <Lock className="h-4 w-4 text-gray-400" />
                   </div>
                   <input
                     type={showConfirmPassword ? "text" : "password"}
@@ -393,7 +393,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className={`w-full pl-10 pr-10 py-2 text-sm sm:text-base border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
+                    className={`w-full pl-10 pr-10 py-2 text-sm border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 ${errors.confirmPassword ? 'focus:ring-red-500' : 'focus:ring-blue-500'} focus:border-blue-500`}
                     placeholder="Confirm your password"
                     required
                     aria-invalid={errors.confirmPassword ? "true" : "false"}
@@ -406,22 +406,22 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
                       className="text-gray-400 hover:text-gray-600 focus:outline-none focus:text-blue-500"
                       aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                     >
-                      {showConfirmPassword ? <EyeOff className="h-4 w-4 sm:h-5 sm:w-5" /> : <Eye className="h-4 w-4 sm:h-5 sm:w-5" />}
+                      {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
                   </div>
                 </div>
                 {errors.confirmPassword && (
-                  <p id="confirm-password-error" className="mt-1 text-xs sm:text-sm text-red-600">{errors.confirmPassword}</p>
+                  <p id="confirm-password-error" className="mt-1 text-xs text-red-600">{errors.confirmPassword}</p>
                 )}
               </div>
             )}
 
             {/* Forgot password - Only for login */}
             {mode === 'login' && (
-              <div className="mb-4 sm:mb-6 text-right">
+              <div className="mb-3 text-right">
                 <a 
                   href="#" 
-                  className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium focus:outline-none focus:underline"
+                  className="text-blue-600 hover:text-blue-800 text-xs font-medium focus:outline-none focus:underline"
                   onClick={(e) => {
                     e.preventDefault();
                     alert('Password reset functionality would go here');
@@ -436,7 +436,7 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-2 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-2 text-sm bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
@@ -452,8 +452,8 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
             </button>
 
             {/* Mode toggle */}
-            <div className="mt-4 sm:mt-6 text-center">
-              <p className="text-gray-600 text-xs sm:text-sm">
+            <div className="mt-3 text-center">
+              <p className="text-gray-600 text-xs">
                 {mode === 'login' ? "Don't have an account?" : "Already have an account?"}
                 <button
                   type="button"
@@ -467,33 +467,33 @@ const AuthPopup = ({ isOpen, onClose, initialMode = 'login' }) => {
           </form>
         </div>
 
-        {/* Divider and social logins */}
-        <div className="border-t border-gray-200 p-4 sm:p-6">
-          <div className="text-center text-gray-500 text-xs sm:text-sm mb-4">Or continue with</div>
-          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+        {/* Divider and social logins - made more compact */}
+        <div className="border-t border-gray-200 p-3">
+          <div className="text-center text-gray-500 text-xs mb-2">Or continue with</div>
+          <div className="flex space-x-2">
             <button 
-              className="flex-1 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-gray-700 font-medium text-xs sm:text-sm flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="flex-1 py-2 px-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-gray-700 font-medium text-xs flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               onClick={() => alert('Google login would be implemented here')}
             >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z" 
                   fill="#4285F4" fillRule="evenodd" />
               </svg>
               Google
             </button>
             <button 
-              className="flex-1 py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-gray-700 font-medium text-xs sm:text-sm flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="flex-1 py-2 px-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition text-gray-700 font-medium text-xs flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               onClick={() => alert('Facebook login would be implemented here')}
             >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.852v-8.384H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.313 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.925-1.955 1.874V12h3.328l-.532 3.469h-2.796v8.384c5.736-.9 10.124-5.864 10.124-11.853z" 
                   fill="#1877F2" />
               </svg>
               Facebook
             </button>
           </div>
-          <p className="text-center text-xs text-gray-500 mt-4">
-            By continuing, you agree to our <a href="#" className="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
+          <p className="text-center text-xs text-gray-500 mt-2">
+            By continuing, you agree to our <a href="#" className="text-blue-600 hover:underline">Terms</a> and <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>
           </p>
         </div>
       </div>
