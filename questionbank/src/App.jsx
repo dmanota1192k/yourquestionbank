@@ -33,11 +33,11 @@ const LandingPage = () => {
   ];
 
   const popularExams = [
-    { id: 1, name: 'Bank PO', category: 'Banking', students: '50,000+', image: '/api/placeholder/250/150' },
-    { id: 2, name: 'SSC CGL', category: 'Government', students: '75,000+', image: '/api/placeholder/250/150' },
-    { id: 3, name: 'JEE Mains', category: 'Engineering', students: '120,000+', image: '/api/placeholder/250/150' },
-    { id: 4, name: 'NEET', category: 'Medical', students: '90,000+', image: '/api/placeholder/250/150' },
-    { id: 5, name: 'GATE', category: 'Engineering', students: '45,000+', image: '/api/placeholder/250/150' },
+    { id: 1, name: 'Bank PO', category: 'Banking', students: '50,000+', image: 'https://media-hosting.imagekit.io/70f39e77a67c4743/35020247_8262066.jpg?Expires=1838137748&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pCBDd5Kyku-mbz4vp25~-ILtACZx~sQXv0HJzLe2eqkEucyWMSkyAkDVccN~hFWf0lcJKzBPgs6vpwAE7MOQkgf1SwHtAGP40qH7TZSyYDgognCv3em7XD47kS8koIKL7IpZ~rJhhCyUUH8mYEmbncg4zYZuWaj8DS9-Ul1rtZXSB0LaYT6FJP5d3nF13iuRGpfhYBdjiI8xf59TP5~QSvvLCN7gpqyutfGF3kO~dddOWoEwIkdtsm7aJHpSuehAUQi98OCb8yif33IyCqTl~JWD5JMtYOfEpb-1ei-MemGKRT9mt4pQevXXKWJarqoL~XnlW7cvDPH6BFGAESvI1g__' },
+    { id: 2, name: 'SSC CGL', category: 'Government', students: '75,000+', image: 'https://media-hosting.imagekit.io/70f39e77a67c4743/35020247_8262066.jpg?Expires=1838137748&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pCBDd5Kyku-mbz4vp25~-ILtACZx~sQXv0HJzLe2eqkEucyWMSkyAkDVccN~hFWf0lcJKzBPgs6vpwAE7MOQkgf1SwHtAGP40qH7TZSyYDgognCv3em7XD47kS8koIKL7IpZ~rJhhCyUUH8mYEmbncg4zYZuWaj8DS9-Ul1rtZXSB0LaYT6FJP5d3nF13iuRGpfhYBdjiI8xf59TP5~QSvvLCN7gpqyutfGF3kO~dddOWoEwIkdtsm7aJHpSuehAUQi98OCb8yif33IyCqTl~JWD5JMtYOfEpb-1ei-MemGKRT9mt4pQevXXKWJarqoL~XnlW7cvDPH6BFGAESvI1g__' },
+    { id: 3, name: 'JEE Mains', category: 'Engineering', students: '120,000+', image: 'https://media-hosting.imagekit.io/70f39e77a67c4743/35020247_8262066.jpg?Expires=1838137748&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pCBDd5Kyku-mbz4vp25~-ILtACZx~sQXv0HJzLe2eqkEucyWMSkyAkDVccN~hFWf0lcJKzBPgs6vpwAE7MOQkgf1SwHtAGP40qH7TZSyYDgognCv3em7XD47kS8koIKL7IpZ~rJhhCyUUH8mYEmbncg4zYZuWaj8DS9-Ul1rtZXSB0LaYT6FJP5d3nF13iuRGpfhYBdjiI8xf59TP5~QSvvLCN7gpqyutfGF3kO~dddOWoEwIkdtsm7aJHpSuehAUQi98OCb8yif33IyCqTl~JWD5JMtYOfEpb-1ei-MemGKRT9mt4pQevXXKWJarqoL~XnlW7cvDPH6BFGAESvI1g__' },
+    { id: 4, name: 'NEET', category: 'Medical', students: '90,000+', image: 'https://media-hosting.imagekit.io/70f39e77a67c4743/35020247_8262066.jpg?Expires=1838137748&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pCBDd5Kyku-mbz4vp25~-ILtACZx~sQXv0HJzLe2eqkEucyWMSkyAkDVccN~hFWf0lcJKzBPgs6vpwAE7MOQkgf1SwHtAGP40qH7TZSyYDgognCv3em7XD47kS8koIKL7IpZ~rJhhCyUUH8mYEmbncg4zYZuWaj8DS9-Ul1rtZXSB0LaYT6FJP5d3nF13iuRGpfhYBdjiI8xf59TP5~QSvvLCN7gpqyutfGF3kO~dddOWoEwIkdtsm7aJHpSuehAUQi98OCb8yif33IyCqTl~JWD5JMtYOfEpb-1ei-MemGKRT9mt4pQevXXKWJarqoL~XnlW7cvDPH6BFGAESvI1g__' },
+    { id: 5, name: 'GATE', category: 'Engineering', students: '45,000+', image: 'https://media-hosting.imagekit.io/70f39e77a67c4743/35020247_8262066.jpg?Expires=1838137748&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=pCBDd5Kyku-mbz4vp25~-ILtACZx~sQXv0HJzLe2eqkEucyWMSkyAkDVccN~hFWf0lcJKzBPgs6vpwAE7MOQkgf1SwHtAGP40qH7TZSyYDgognCv3em7XD47kS8koIKL7IpZ~rJhhCyUUH8mYEmbncg4zYZuWaj8DS9-Ul1rtZXSB0LaYT6FJP5d3nF13iuRGpfhYBdjiI8xf59TP5~QSvvLCN7gpqyutfGF3kO~dddOWoEwIkdtsm7aJHpSuehAUQi98OCb8yif33IyCqTl~JWD5JMtYOfEpb-1ei-MemGKRT9mt4pQevXXKWJarqoL~XnlW7cvDPH6BFGAESvI1g__' },
   ];
 
   const whyChooseUs = [
@@ -155,9 +155,14 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
-          <div className="md:w-1/2">
-            <img src="https://media-hosting.imagekit.io/f944ca46cce04ae3/grades-concept-illustration.png?Expires=1838110336&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=YHi~cbUmndFKRqes0Iqgum0FdNylgVIYCT90MADbEH8L6WSeT5hCvAJTWVsVfpeS4xYaPEZFoXQqZRW7qsle~7x4-CA-J1XgZ9PRel4y9SpTW6P6oXOpHvUmRscXDau136qRSxqbdElCGPc6u0YOnpmysTtUnMttVyvOjJxK~zdcesYkj6bh44o~Db~1ImMZUqFZKldBk84zoCPplNKMU52iwzXyIKT5wRcgQOzgAcKdM6nswpDgfpdcRjaLOvSrrqD1927skNZ2h2FBPd2Em6tYTIrQn1fCk~dfYwMm~A8O~PQ2n7DzdQ91STc1VodEKG8m~A7Mt06ssdrN73KgYA__" alt="Students preparing for exam" className="rounded-lg shadow-2xl w-full h-auto" />
-          </div>
+          <div className="md:w-1/2 ml-8"> 
+  <img 
+    src="https://media-hosting.imagekit.io/4d44d1f0b3324f0f/students_09.jpg?Expires=1838137008&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=KmuOideS0EOesNDV-i6RFgDNSdKjd3CEU2VUjIetoZTQ5Dav8w~lkcugGj5aPNSu6SlpJopGjPMdZsjm0iDRKuwl~31WEHkRJA64Mjhr6n1hWgn1MRoY0GAzT-Ol5eVeEnuk9QXsgoofzVHNiTOHEI1gHB8MJjKEpSRWpO-1XKeuIM97Ym--aoDG~CBFUhMySEVZN2wLGepJ7G8ukoqYLSkvmVaii~RvXj63J-Icylto1oGy2qHLI4aJGnrmk4ejMDA-FWC9EiD97xXiwtAzDNUNlMz3R39HUHt7ZnmFp25HJ6wqak5eApa9DqchvnUJidEGOn1ihFNsn7E~5hn43g__" 
+    alt="Students preparing for exam" 
+    className="rounded-lg shadow-2xl w-full h-85 object-cover object-center" 
+    style={{ backgroundColor: 'transparent' }}
+  /> 
+</div>
         </div>
       </section>
 
@@ -171,7 +176,7 @@ const LandingPage = () => {
           
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <img src="/api/placeholder/600/400" alt="About QuestionBank" className="rounded-lg shadow-xl w-full h-auto" />
+              <img src="https://media-hosting.imagekit.io/2a906e91962944f2/3953181.jpg?Expires=1838136798&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=qlvlVV3PFwLlZ9gDsJwVM8t3AsGUAZPDyQhgdM9GsEQVSaVyVuRDYBnCUrmmqsKJTZwFxGUTt7LIY7tYla8sf~77sc~AOzfPMEE~w0KFEpuJfVPWHLbE8bckVFJueqjWdqpAepP8Zi6Mmav12i375mt5aoQ5FRPe9rZkLRyG-AYOJAmLT-UCwhAsKM7RthMlqLZGg9FM2OWlitw9FOpxmh4SYE4qUqIwGbTOlGKKIriQBRWr4NtoMOZpPUBfgrcATJhhCx1K88rbvVYAe3ijPKmPI06HSWQm~lBsh3eTCrfZ9uwnhBGe-lrDM7Ta6FSmYQV4t3qXe6ZnRk0dGEoWsw__" alt="About QuestionBank" className="rounded-lg shadow-xl w-full h-auto" />
             </div>
             <div className="md:w-1/2 md:pl-8 lg:pl-12">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4">Empowering Students Since 2020</h3>
