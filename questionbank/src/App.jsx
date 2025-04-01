@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, BookOpen, Calendar, CheckCircle, ChevronLeft, ChevronRight, FileText, Gift, GraduationCap, Instagram, Linkedin, Mail, Phone, Shield, Star, Twitter, Youtube } from 'lucide-react';
-import AuthPopup from './components/header/AuthPopup'; // Import the AuthPopup component
+import AuthPopup from './components/AuthPopup'; // Import the AuthPopup component
 
 const LandingPage = () => {
   // Now using all the variables appropriately
