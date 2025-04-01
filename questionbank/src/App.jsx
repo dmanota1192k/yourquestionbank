@@ -156,7 +156,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="md:w-1/2">
-            <img src="/api/placeholder/600/400" alt="Students preparing for exam" className="rounded-lg shadow-2xl w-full h-auto" />
+            <img src="https://media-hosting.imagekit.io/f944ca46cce04ae3/grades-concept-illustration.png?Expires=1838110336&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=YHi~cbUmndFKRqes0Iqgum0FdNylgVIYCT90MADbEH8L6WSeT5hCvAJTWVsVfpeS4xYaPEZFoXQqZRW7qsle~7x4-CA-J1XgZ9PRel4y9SpTW6P6oXOpHvUmRscXDau136qRSxqbdElCGPc6u0YOnpmysTtUnMttVyvOjJxK~zdcesYkj6bh44o~Db~1ImMZUqFZKldBk84zoCPplNKMU52iwzXyIKT5wRcgQOzgAcKdM6nswpDgfpdcRjaLOvSrrqD1927skNZ2h2FBPd2Em6tYTIrQn1fCk~dfYwMm~A8O~PQ2n7DzdQ91STc1VodEKG8m~A7Mt06ssdrN73KgYA__" alt="Students preparing for exam" className="rounded-lg shadow-2xl w-full h-auto" />
           </div>
         </div>
       </section>
